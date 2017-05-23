@@ -81,7 +81,6 @@ def prepare_data_for_training(X,y,img_rows, img_cols, img_channels):
     else:
         X = np.transpose((0,3,1,2))
 
-
     X, y = shuffle(X, y, random_state=7) # randomly shuffles the data
 
     y = np_utils.to_categorical(y, nb_classes) # converts integer labels to one-hot vecor
@@ -95,6 +94,9 @@ X,y = prepare_data_for_training(X, y, img_rows, img_cols,img_channels=1)
 
 
 def create_model():
+    """
+        Creates a conv-net model
+    """
     print("Creating model...")
     model = Sequential()
     model.add(BatchNormalization(input_shape=(img_channels,img_rows,img_cols)))
